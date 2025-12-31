@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Exemple</title>
+  <!-- Lien vers le fichier CSS externe -->
+  <link href="dentist1.css" rel="stylesheet">
+  <!-- Lien vers Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<style>
+  .nav-link {
+    color: #2DA6DD !important; 
+    padding-left: 60%;
+  }
+  .nav-link:hover {
+    color:darkblue !important; 
+  }
+  h3{
+    color: #5DB3E8  !important;
+  }
+  h1{
+    color: #5DB3E8 !important;
+  }
+  h5{
+    color: #5DB3E8 !important;
+  }
+</style>
+<body>
+<div class="container mt-3">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-md-6 d-flex align-items-center">
+      <i class="fas fa-tooth fa-2x text-dark"></i>
+      <h3 class="mb-0 ms-2"><strong><i>Clinique Vitrine</i></strong></h3>
+    </div>
+    <div class="col-md-6 text-end">
+      <a href="tel:+212612345678" class="text-dark mx-2"><i class="bi bi-telephone-fill"></i></a>
+      <a href="mailto:exemple@gmail.com" class="text-dark mx-2"><i class="bi bi-envelope-fill"></i></a>
+      <a href="https://wa.me/212612345678" target="_blank" class="text-success mx-2"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.facebook.com/tonprofil" target="_blank" class="text-primary mx-2"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/tonprofil" target="_blank" class="text-danger mx-2"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-12">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="me-3">
+          <img src="dent.png" alt="Icône du site" width="50">
+        </div>
+        <ul class="nav">
+          <li class="nav-item"><a href="dentist1.html" class="nav-link"><strong><i>HOME</i></strong></a></li>
+          <li class="nav-item"><a href="#team" class="nav-link"><strong><i>TEAM</i></strong></a></li>
+          <li class="nav-item"><a href="#about" class="nav-link"><strong><i>ABOUT US</i></strong></a></li>
+          <li class="nav-item"><a href="#services" class="nav-link"><strong><i>SERVICE</i></strong></a></li>
+          <li class="nav-item"><a href="#docteur" class="nav-link"><strong><i>DOCTEUR</i></strong></a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link"><strong><i> CONTACT US </i></strong></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row align-items-center justify-content-center text-center">
+    <div class="col-md-6">
+      <h1><strong><i>Make with us your perfect smile</i></strong></h1><br>
+      <h6><i>We provide comprehensive and personalized dental service to keep your smile bright, healthy, and confident.</i></h6>
+    </div>
+    <div class="col-md-6">
+      <img src="dentist6.jpg" alt="Image" width="300">
+    </div>
+  </div>
+</div>
+<div class="container my-4">
+  <div class="d-flex justify-content-center">
+    <div class="p-4 bg-white rounded-3">
+      <button 
+        onclick="window.location.href='https://www.youtube.com/watch?v=VIDEO_ID'" 
+        class="btn text-white"
+        style="background-color: #5DB3E8; border: none; padding: 10px 25px; border-radius: 8px;">
+        🎥 Watch a Video
+      </button>
+    </div>
+  </div>
+</div>
+<style>
+    .border-custom {
+      border-color: #5DB3E8 !important;
+    }
+  </style>
+
+<!-- Cartes de l'équipe -->
+<style>
+    .border-custom {
+      border-color: #5DB3E8 !important;
+    }
+    .card:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transform: scale(1.02);
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Section titre -->
+<div id="team" class="d-flex justify-content-center align-items-center" style="height:20vh;">
+  <h3><i><strong>Get to know our team</strong></i></h3>
+</div>
+
+<!-- Cartes dynamiques -->
+<div class="container mt-3">
+  <div class="row justify-content-center text-center" id="cards-container">
+    <!-- Les cartes seront injectées par JavaScript -->
+  </div>
+</div>
+
+<!-- Modal unique -->
+<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content border-custom rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title" id="teamModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body" id="teamModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Données des membres
+const teamMembers = [
+  {
+    name: "Dr. Jhon Rodreg",
+    image: "dentist7.jpeg",
+    role: "Dentiste",
+    experience: "15 ans",
+    description: "Spécialisé dans les soins dentaires esthétiques, la chirurgie buccale, et le traitement des cas complexes avec une approche douce et personnalisée."
+  },
+  {
+    name: "Dr. Sofia Rodrigo",
+    image: "dentist8.jpeg",
+    role: "Dentiste",
+    experience: "10 ans",
+    description: "Passionnée par la prévention et les soins de longue durée, elle combine technologie moderne et contact humain pour assurer le bien-être des patients."
+  },
+  {
+    name: "Aryana Solami",
+    image: "assisstant2.jpeg",
+    role: "Assistante",
+    experience: "6 ans",
+    description: "Aryana soutient les dentistes avec efficacité et empathie, tout en rassurant les patients avec son sourire et son professionnalisme."
+  },
+  {
+    name: "Fares Rihabi",
+    image: "assisstant3.jpeg",
+    role: "Assistant",
+    experience: "9 ans",
+    description: "Très expérimenté dans la préparation des interventions et l’assistance technique, Fares est reconnu pour son calme et sa précision."
+  }
+];
+
+// Sélectionner conteneur des cartes
+const cardsContainer = document.getElementById('cards-container');
+
+// Générer dynamiquement les cartes
+teamMembers.forEach((member, index) => {
+  const col = document.createElement('div');
+  col.className = 'col-md-3 m-2';
+  col.innerHTML = `
+    <div class="card border-custom rounded-4" style="border-width: 3px;" data-index="${index}" data-bs-toggle="modal" data-bs-target="#teamModal">
+      <img src="${member.image}" class="card-img-top rounded-top-4" alt="${member.name}">
+      <div class="card-body">
+        <h5 class="card-title" style="color: #5DB3E8;">${member.name}</h5>
+        <p class="card-text">Spécialité : ${member.role}<br>Expérience : ${member.experience}</p>
+      </div>
+    </div>
+  `;
+  cardsContainer.appendChild(col);
+});
+
+// Écouteur d'événements pour toutes les cartes
+cardsContainer.addEventListener('click', (e) => {
+  const card = e.target.closest('.card');
+  if (!card) return;
+
+  const index = card.getAttribute('data-index');
+  const member = teamMembers[index];
+
+  // Remplir le contenu du modal
+  document.getElementById('teamModalLabel').textContent = member.name;
+  document.getElementById('teamModalBody').innerHTML = `
+    <img src="${member.image}" class="img-fluid mb-3 rounded-3" alt="${member.name}">
+    <p><strong>Spécialité :</strong> ${member.role}</p>
+    <p><strong>Expérience :</strong> ${member.experience}</p>
+    <p><strong>À propos :</strong> ${member.description}</p>
+  `;
+});
+</script>
+<div id="about" class="d-flex justify-content-center align-items-center" style="height:20vh;"></div>
+
+<!-- Section ABOUT US -->
+<div id="about" class="container my-5">
+  <div class="about-section text-center">
+    <h1 class="mb-4">
+      <span style="color: black;">À propos de</span>
+      <strong style="color: #5DB3E8;"> Clinique Vitrine</strong>
+    </h1>
+    <div class="container mt-5">
+  <div class="row text-center">
+
+    <!-- Zone 1 -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm">
+        <p class="lead">
+          Bienvenue à la Clinique Vitrine, votre centre de soins dentaires de confiance. 
+          <i class="fas fa-tooth"></i><br>
+          Depuis plus de <strong style="color: #5DB3E8;">10 ans</strong>, nous offrons des services dentaires de qualité, dans une atmosphère chaleureuse et rassurante.
+        </p>
+        <div class="icon-tooth mt-3">
+          <i class="fas fa-tooth fa-2x text-black"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 2 -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm">
+        <p>
+          Notre équipe est composée de <strong style="color: #5DB3E8;">professionnels passionnés</strong> et expérimentés, 
+          qui placent le confort et la santé de nos patients au cœur de leurs priorités.
+        </p>
+        <div class="icon-tooth mt-3">
+          <i class="fas fa-tooth fa-2x text-black"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 3 -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm">
+        <p>
+          Grâce à l’utilisation de <strong style="color: #5DB3E8;">technologies modernes</strong>, nous garantissons des soins efficaces, 
+          doux et adaptés à chaque besoin.
+        </p>
+        <div class="icon-tooth mt-3">
+          <i class="fas fa-tooth fa-2x text-black"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone 4 -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm">
+        <p>
+          Qu’il s’agisse d’un simple contrôle, d’un blanchiment, d’un traitement orthodontique ou d’une chirurgie, 
+          nous vous accompagnons avec professionnalisme, écoute et bienveillance.<br>
+          <strong style="color: #5DB3E8;">Votre sourire mérite le meilleur.</strong> Faites-nous confiance pour prendre soin de lui !
+        </p>
+        <div class="icon-tooth mt-3">
+          <i class="fas fa-tooth fa-2x text-black"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="services" class="d-flex justify-content-center align-items-center" style="height:20vh;"></div>
+<style>
+    .service-title {
+      width: 150px;
+      height: 150px;
+      margin: auto;
+      border-radius: 50%;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+      user-select: none; /* Empêche la sélection du texte au clic */
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .service-title:hover {
+      background-color: #e2e6ea;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<h3><i><strong>Welcome to our SERVICE</strong></i></h3>
+<div class="container mt-5">
+  <div class="row text-center">
+
+    <!-- Zone 1 -->
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm d-flex align-items-center justify-content-center">
+        <h6 class="service-title" style="cursor:pointer;" 
+            data-bs-toggle="modal" data-bs-target="#serviceModal" 
+            data-title="Soins dentaires de base" 
+            data-content="Consultation et diagnostic dentaire   Nettoyage et détartrage   Traitement des caries (plombages)   Extraction dentaire (dents de sagesse incluses)">
+          Soins dentaires de base
+        </h6>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm d-flex align-items-center justify-content-center">
+        <h6 class="service-title" style="cursor:pointer;" 
+            data-bs-toggle="modal" data-bs-target="#serviceModal" 
+            data-title="Soins esthétiques" 
+            data-content="Blanchiment des dents Facettes dentaires (veneers) Contouring dentaire (remodelage esthétique)">
+          Soins esthétiques
+        </h6>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm d-flex align-items-center justify-content-center">
+        <h6 class="service-title" style="cursor:pointer;" 
+            data-bs-toggle="modal" data-bs-target="#serviceModal" 
+            data-title="Orthodontie" 
+            data-content="Appareils dentaires (métalliques, transparents, etc.) Gouttières invisibles (Invisalign)">
+          Orthodontie
+        </h6>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 p-3 shadow-sm d-flex align-items-center justify-content-center">
+        <h6 class="service-title" style="cursor:pointer;" 
+            data-bs-toggle="modal" data-bs-target="#serviceModal" 
+            data-title="Chirurgie dentaire" 
+            data-content="Implants dentaires Greffe osseuse Chirurgie des gencives">
+          Chirurgie dentaire
+        </h6>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="serviceModalLabel">Titre du service</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body" style="white-space: pre-line;">
+        Contenu du service
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS + Popper (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+<script>
+  const serviceModal = document.getElementById('serviceModal');
+  const modalTitle = serviceModal.querySelector('.modal-title');
+  const modalBody = serviceModal.querySelector('.modal-body');
+
+  serviceModal.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget;
+    const title = button.getAttribute('data-title');
+    const content = button.getAttribute('data-content');
+
+    modalTitle.textContent = title;
+    modalBody.textContent = content;
+  });
+</script>
+<div id="docteur" class="d-flex justify-content-center align-items-center" style="height:20vh;"></div>
+<h3> <strong><i> Meilleur docteur de ce mois</i></strong> </h3><br>
+
+    
+    <!-- Photo du docteur -->
+
+<style>
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+</style>
+<img 
+  src="dentist8.jpeg" 
+  alt="Docteur" 
+  class="rounded-full w-72 h-72 object-cover shadow-md float"
+  style="width: 200px; height: 200px; border-radius: 50%; border: 5px solid ; object-fit: cover;"
+/>
+    <div>
+      <h4 class="text-3xl font-bold text-gray-800 mb-2" id="nomDocteur">Dr.Sofia Rodrigo </h4>
+      <p class="text-xl text-gray-600 mb-1" id="specialite">Spécialité : Dentiste</p>
+      <p class="text-md text-gray-500 mb-4" id="hopital">Clinique : Vitrine</p>
+
+      <h5 class="text-2xl font-semibold text-green-500 mb-2">Pourquoi elle est la meilleure docteure du mois :</h6>
+      <p class="text-gray-700" id="raison">
+        Grâce à son dévouement exceptionnel, elle a sauvé plus de 20 vies ce mois-ci, tout en offrant un accompagnement humain et bienveillant à ses patients.
+      </p>
+    </div>
+  </div>
+  <script>
+    const nom = "Dr.Sofia Rodrigo ";
+    const specialite = "Dentist";
+    const Clinique = "Vitrine , Tanjer";
+    const raison = "Grâce à son dévouement exceptionnel, elle a sauvé plus de 20 vies ce mois-ci, tout en offrant un accompagnement humain et bienveillant à ses patients.";
+
+    document.getElementById("nomDocteur").textContent = nom;
+    document.getElementById("specialite").textContent = "Spécialité : " + specialite;
+    document.getElementById("Clinique").textContent = "Hôpital : " + Clinique;
+    document.getElementById("raison").textContent = raison;
+  </script>
+  <br><br><br>
+  <div id="contact" class="d-flex justify-content-center align-items-center" style="height:20vh;">
+    <style>
+    table {
+      border: 2px solid #5DB3E8; /* Le cadre autour du tableau */
+      padding: 10px;
+      border-collapse: collapse;
+      margin: 20px;
+    }
+
+    td {
+      padding: 8px;
+    }
+
+    h3 {
+      color: #5DB3E8;
+    }
+  </style>
+    <div id="formulaire">
+<form><br>
+  <h3 class="text">Contacter a nous</h3>
+    <table>
+      <tr>
+        <td><label for="nom">Nom :</label></td>
+        <td><input type="text" id="nom" name="nom" placeholder="Entrer votre nom" required></td>
+      </tr>
+      <tr>
+        <td><label for="prenom">Prénom :</label></td>
+        <td><input type="text" id="prenom" name="prenom" placeholder="Entrer votre prénom" required></td>
+      </tr>
+      <tr>
+        <td><label for="mobile">Numéro mobile :</label></td>
+        <td><input type="tel" id="mobile" name="mobile" placeholder="Entrer votre numéro" required></td>
+      </tr>
+      <tr>
+        <td><label for="email">Email :</label></td>
+        <td><input type="email" id="email" name="email" placeholder="Entrer votre email" required></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align:center;">
+          <input type="submit" value="Envoyer" />
+          °
+        </td>
+      </tr>
+    </table>
+  </form>
+  
+  
+  <script>
+    document.getElementById("aff").addEventListener("click",function(){
+      document.getElementById("formulaire").style.display="block";
+    });
+  </script>
+  </div>
+</body>
+</html>
